@@ -23,7 +23,12 @@
     "yellow",
     "gold",
     "silver",
-    "crystal"
+    "crystal",
+    "firered",
+    "leafgreen",
+    "ruby",
+    "sapphire",
+    "emerald"
   ],
   "mods": [
     {

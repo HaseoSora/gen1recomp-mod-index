@@ -103,7 +103,7 @@ test('a complete entry validates', () => {
 
 test('game targets accept every supported game and generation', () => {
   const games = ['red', 'blue', 'yellow', 'gold', 'silver', 'crystal',
-    'firered', 'leafgreen', 'emerald', 'gen1', 'gen2', 'gen3', 'frlg', 'rse', 'all'];
+    'firered', 'leafgreen', 'ruby', 'sapphire', 'emerald', 'gen1', 'gen2', 'gen3', 'frlg', 'rse', 'all'];
   assert.deepEqual(validate({ ...GOOD_META, games }, schema), []);
   assert.match(validate({ ...GOOD_META, games: ['unknown_game'] }, schema).join(), /is not one of/);
 });
@@ -214,6 +214,10 @@ test('a cart needs a base game, a seal and a mod list', () => {
 });
 
 test('the base game and the seal come from fixed vocabularies', () => {
+  for (const base of ['red', 'blue', 'yellow', 'gold', 'silver', 'crystal',
+    'firered', 'leafgreen', 'ruby', 'sapphire', 'emerald']) {
+    assert.deepEqual(validate({ ...GOOD_CART, base }, cartSchema), [], base);
+  }
   assert.match(validate({ ...GOOD_CART, base: 'unsupported_game' }, cartSchema).join(), /is not one of/);
   assert.match(validate({ ...GOOD_CART, seal: 'locked' }, cartSchema).join(), /is not one of/);
 });

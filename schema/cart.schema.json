@@ -49,7 +49,12 @@
         "yellow",
         "gold",
         "silver",
-        "crystal"
+        "crystal",
+        "firered",
+        "leafgreen",
+        "ruby",
+        "sapphire",
+        "emerald"
       ],
       "description": "The game the cart plays as. Same name and vocabulary as the bundle's cart.json."
     },
